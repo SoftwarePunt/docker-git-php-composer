@@ -4,12 +4,17 @@
 # Based on yesops/ubuntu:latest                                         
 #############################################################################
 
-
 ## Set the base image to Ubuntu
 FROM ubuntu:14.04
 
 ## File Author / Maintainer
 MAINTAINER Software Punt <contact@softwarepunt.nl>
+
+## Update locales
+RUN locale-gen en_US.UTF-8  
+ENV LANG en_US.UTF-8  
+ENV LANGUAGE en_US:en  
+ENV LC_ALL en_US.UTF-8 
 
 ## Update repos and install packages
 RUN apt-get update && apt-get install -y --no-install-recommends \
